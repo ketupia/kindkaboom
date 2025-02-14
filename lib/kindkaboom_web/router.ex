@@ -21,7 +21,7 @@ defmodule KindkaboomWeb.Router do
     plug :set_actor, :user
   end
 
-  scope "/", KindkaboomWeb do
+  scope "/user", KindkaboomWeb do
     pipe_through :browser
 
     ash_authentication_live_session :authenticated_routes do
@@ -35,6 +35,8 @@ defmodule KindkaboomWeb.Router do
       #
       # If an authenticated user must *not* be present:
       # on_mount {KindkaboomWeb.LiveUserAuth, :live_no_user}
+
+      live("/dashboard", UserDashboardLive)
     end
   end
 
