@@ -38,3 +38,9 @@ config :phoenix, :plug_init_mode, :runtime
 # Enable helpful, but potentially expensive runtime checks
 config :phoenix_live_view,
   enable_expensive_runtime_checks: true
+
+if System.get_env("GITHUB_ACTIONS") do
+  config :kindkaboom, Kindkaboom.Repo,
+    username: "postgres",
+    password: "postgres"
+end
