@@ -44,12 +44,17 @@ defmodule KindkaboomWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
-    live "/organizations", OrganizationLive.Index, :index
-    live "/organizations/new", OrganizationLive.Index, :new
-    live "/organizations/:id/edit", OrganizationLive.Index, :edit
 
-    live "/organizations/:id", OrganizationLive.Show, :show
-    live "/organizations/:id/show/edit", OrganizationLive.Show, :edit
+    ash_authentication_live_session :optional_authenticated_routes,
+      on_mount: [{KindkaboomWeb.LiveUserAuth, :live_user_optional}] do
+      live "/organizations", OrganizationLive.Index, :index
+      live "/organizations/new", OrganizationLive.Index, :new
+      live "/organizations/:id/edit", OrganizationLive.Index, :edit
+
+      live "/organizations/:id", OrganizationLive.Show, :show
+      live "/organizations/:id/show/edit", OrganizationLive.Show, :edit
+    end
+
     auth_routes AuthController, Kindkaboom.Accounts.User, path: "/auth"
     sign_out_route AuthController
 
