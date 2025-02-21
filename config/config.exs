@@ -53,7 +53,7 @@ config :spark,
 config :kindkaboom,
   ecto_repos: [Kindkaboom.Repo],
   generators: [timestamp_type: :utc_datetime],
-  ash_domains: [Kindkaboom.Accounts]
+  ash_domains: [Kindkaboom.Organizations, Kindkaboom.Accounts]
 
 # Configures the endpoint
 config :kindkaboom, KindkaboomWeb.Endpoint,

@@ -44,6 +44,12 @@ defmodule KindkaboomWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+    live "/organizations", OrganizationLive.Index, :index
+    live "/organizations/new", OrganizationLive.Index, :new
+    live "/organizations/:id/edit", OrganizationLive.Index, :edit
+
+    live "/organizations/:id", OrganizationLive.Show, :show
+    live "/organizations/:id/show/edit", OrganizationLive.Show, :edit
     auth_routes AuthController, Kindkaboom.Accounts.User, path: "/auth"
     sign_out_route AuthController
 
