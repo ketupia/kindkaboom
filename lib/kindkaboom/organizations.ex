@@ -4,5 +4,6 @@ defmodule Kindkaboom.Organizations do
 
   resources do
     resource Kindkaboom.Organizations.Organization
+    resource Kindkaboom.Organizations.Volunteer
   end
 end
