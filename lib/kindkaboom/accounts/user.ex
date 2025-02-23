@@ -96,6 +96,12 @@ defmodule Kindkaboom.Accounts.User do
       allow_nil? false
       public? true
     end
+
+    attribute :site_role, :atom do
+      constraints one_of: [:user, :admin]
+      allow_nil? false
+      default :user
+    end
   end
 
   identities do
