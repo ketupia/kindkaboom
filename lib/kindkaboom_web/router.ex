@@ -53,6 +53,13 @@ defmodule KindkaboomWeb.Router do
 
       live "/organizations/:id", OrganizationLive.Show, :show
       live "/organizations/:id/show/edit", OrganizationLive.Show, :edit
+
+      live "/volunteers", VolunteerLive.Index, :index
+      live "/volunteers/new", VolunteerLive.Index, :new
+      live "/volunteers/:id/edit", VolunteerLive.Index, :edit
+
+      live "/volunteers/:id", VolunteerLive.Show, :show
+      live "/volunteers/:id/show/edit", VolunteerLive.Show, :edit
     end
 
     auth_routes AuthController, Kindkaboom.Accounts.User, path: "/auth"

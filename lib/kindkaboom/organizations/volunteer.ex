@@ -3,7 +3,8 @@ defmodule Kindkaboom.Organizations.Volunteer do
     otp_app: :kindkaboom,
     domain: Kindkaboom.Organizations,
     notifiers: [Ash.Notifier.PubSub],
-    authorizers: [Ash.Policy.Authorizer],
+    # TODO - johnny, johnhitz, kevin, maxhero
+    # authorizers: [Ash.Policy.Authorizer],
     data_layer: AshPostgres.DataLayer
 
   postgres do
